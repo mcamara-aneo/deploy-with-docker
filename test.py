@@ -11,6 +11,6 @@ new_data = {'Age': 68,
 
 
 def test_predict():
-    features = pd.DataFrame(new_data)
+    features = pd.DataFrame.from_dict(new_data)
     prediction = model_pred(features)
     assert prediction == 1
