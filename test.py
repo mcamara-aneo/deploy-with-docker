@@ -1,3 +1,4 @@
+import pandas as pd
 from app import model_pred
 
 new_data = {'Age': 68,
@@ -10,5 +11,6 @@ new_data = {'Age': 68,
 
 
 def test_predict():
-    prediction = model_pred(new_data)
+    features = pd.DataFrame(new_data)
+    prediction = model_pred(features)
     assert prediction == 1
