@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import pickle
+import pandas as pd
 
 
 app = Flask(__name__)
@@ -7,7 +8,7 @@ model = pickle.load(open("catboost_model-2.pkl", "rb"))
 
 
 def model_pred(features):
-    test_data = features.copy() #pd.DataFrame([features])
+    test_data = pd.DataFrame([features])
     prediction = model.predict(test_data)
     return int(prediction[0])
 
